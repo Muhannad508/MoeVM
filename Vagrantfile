@@ -1,5 +1,9 @@
 Vagrant.configure(2) do |config|	  
-  config.vm.box = "ubuntu/bionic64"  	
+  config.vm.box = "bento/ubuntu-19.10"  
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  
+  config.vm.synced_folder "/home/moe/IdeaProjects", "/vagrant_IdeaProjects"
+	
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.name = "dev-os-vm"
