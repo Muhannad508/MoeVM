@@ -5,7 +5,7 @@ apt-get install -y linux-headers-$(uname -r) build-essential dkms
 apt-get install -y unzip
 apt-get install -y zip
 apt-get install -y git
-apt-get install openjdk-13-jdk
+apt-get install -y openjdk-13-jdk
 
 # curl -s "https://get.sdkman.io" | bash
 # source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -16,9 +16,15 @@ apt-get install openjdk-13-jdk
 #sdk install springboot
 
 
-apt-get install -y nginx
 
-apt-get update
+apt-get install -y apache2
+
+apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
 
 
 echo "dev tools have been installed , you shall begin , my lord "
