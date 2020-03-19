@@ -24,12 +24,14 @@ snap install code --classic
 snap install skype --classic
 snap install ubuntu-make --classic
 # install make from snap then download nodejs
-umake nodejs
+#umake nodejs
 
 apt-get update
 apt-get upgrade --yes
  
 #Opotional packages- uncomment the desired package to install 
+
+# snap install intellij-idea-ultimate --classic
 #apt-get install -y openjdk-13-jdk 
 #sudo add-apt-repository ppa:amanusk/python-s-tui
 #sudo apt-get update
