@@ -23,8 +23,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 snap install code --classic
 snap install skype --classic
 snap install ubuntu-make --classic
-# install make from snap then download nodejs
-#umake nodejs
+# install make from snap then download some programming langs / frameworks
+umake nodejs
 
 apt-get update
 apt-get upgrade --yes
@@ -37,9 +37,11 @@ apt-get upgrade --yes
 #sudo apt-get update
 #sudo apt-get install python3-s-tui
 
-# SDK tool
+# SDK tool:
+
 # curl -s "https://get.sdkman.io" | bash
 # $ source "$HOME/.sdkman/bin/sdkman-init.sh"
+#sdk java
 
 # download chrome
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /home/moe/Downloads
