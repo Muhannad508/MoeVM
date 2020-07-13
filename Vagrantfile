@@ -15,6 +15,8 @@ Vagrant.configure(2) do |config|
      #   d.post_install_provision "shell", inline:"echo export http_proxy='http://127.0.0.1:3128/' >> /etc/default/docker"
 
 	d.run "mongo" , args: "-d -p 27017-27019:27017-27019 --name mongodb"
+	
+	# d.run "mongo-express" , args: "-it --rm -p 8081:8081 --link mongodb"
   end
 
 

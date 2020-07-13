@@ -1,0 +1,15 @@
+{
+  "type": "model",
+  "series": "16",
+  "model": "ubuntu-core-18-amd64",
+  "display-name":"Ubuntu Core 18 (amd64)",
+  "architecture": "amd64",
+  "kernel": "pc-kernel=18",
+  "gadget": "pc=18",
+  "base": "core20",
+  "required-snaps": ["authy","cheat", "code", "intellij-idea-ultimate", "micro","skype", "snapcraft" ,"ubuntu-make", "webstorm"],
+  "authority-id": "bJzr2XzZ56Qv6Z51HIeziXvxtn1XItIq",
+  "brand-id": "bJzr2XzZ56Qv6Z51HIeziXvxtn1XItIq",
+  "timestamp": "2020-03-10T12:05:38+00:00"
+}
+

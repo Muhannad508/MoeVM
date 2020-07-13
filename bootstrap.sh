@@ -15,11 +15,14 @@ apt-get install -y zip
 apt-get install -y git
 #apt-get install -y openjdk-13-jdk
 
-# curl -s "https://get.sdkman.io" | bash
-# source "$HOME/.sdkman/bin/sdkman-init.sh"
+# SDK tool:
 
-#sdk install java
-#sdk install maven
+ curl -s "https://get.sdkman.io" | bash
+# source "$HOME/.sdkman/bin/sdkman-init.sh"
+ source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+
+sdk install java
+sdk install maven
 #sdk install gradle
 #sdk install springboot
 

@@ -20,6 +20,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 
 # Snap packages
+# "Optional-snaps-": ["authy","cheat", "code", "intellij-idea-ultimate", "micro","skype", "snapcraft" ,"ubuntu-make", "webstorm"]
 snap install code --classic
 snap install skype --classic
 snap install ubuntu-make --classic
@@ -40,7 +41,8 @@ apt-get upgrade --yes
 # SDK tool:
 
 # curl -s "https://get.sdkman.io" | bash
-# $ source "$HOME/.sdkman/bin/sdkman-init.sh"
+# source "$HOME/.sdkman/bin/sdkman-init.sh"
+# source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 #sdk java
 
 # download chrome
