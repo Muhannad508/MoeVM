@@ -14,29 +14,28 @@ apt-get install -y git
 
 apt-get install -y htop
 
+apt-get install -y fish
+
+
 apt-get install -y flatpak
 apt-get install -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 
-# Snap packages
-# "Optional-snaps-": ["authy","cheat", "code", "intellij-idea-ultimate", "micro","skype", "snapcraft" ,"ubuntu-make", "webstorm"]
-snap install code --classic
-snap install skype --classic
+#  *** SNAP packages  ****
+#   snap install code --classic
+#   snap install skype --classic
 snap install ubuntu-make --classic
+snap install cheat
+snap install micro --classic
+
+
 # install make from snap then download some programming langs / frameworks
 umake nodejs
 
 apt-get update
 apt-get upgrade --yes
  
-#Opotional packages- uncomment the desired package to install 
-
-# snap install intellij-idea-ultimate --classic
-#apt-get install -y openjdk-13-jdk 
-#sudo add-apt-repository ppa:amanusk/python-s-tui
-#sudo apt-get update
-#sudo apt-get install python3-s-tui
 
 # SDK tool:
 
