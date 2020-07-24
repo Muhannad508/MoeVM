@@ -2,7 +2,7 @@
 
 apt-get update
 
-# APT packages
+######################### Deb ########################
 apt-get install -y \
     apt-transport-https \
     ca-certificates \
@@ -17,21 +17,26 @@ apt-get install -y htop
 apt-get install -y fish
 
 
-apt-get install -y flatpak
-apt-get install -y gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+################ Flatpak ##########################
+
+#   apt-get install -y flatpak
+#   apt-get install -y gnome-software-plugin-flatpak
+#   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 
-#  *** SNAP packages  ****
+##################### Snap ########################
 #   snap install code --classic
 #   snap install skype --classic
 snap install ubuntu-make --classic
 snap install cheat
 snap install micro --classic
+snap install node --classic  # nodeJs
 
-
-# install make from snap then download some programming langs / frameworks
+################# umake packages from (ubuntu-make) #######################
 #umake nodejs
+
+################################################################
+
 
 apt-get update
 apt-get upgrade --yes

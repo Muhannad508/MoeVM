@@ -17,12 +17,12 @@ apt-get install -y git
 
 # SDK tool:
 
- curl -s "https://get.sdkman.io" | bash
-# source "$HOME/.sdkman/bin/sdkman-init.sh"
- source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+ #curl -s "https://get.sdkman.io" | bash
 
-sdk install java
-sdk install maven
+ #source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+
+#sdk install java
+#sdk install maven
 #sdk install gradle
 #sdk install springboot
 
