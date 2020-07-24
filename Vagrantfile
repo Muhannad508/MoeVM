@@ -3,7 +3,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.50.4"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.synced_folder "/home/moe/IdeaProjects", "/home/vagrant/IdeaProjects"
-  config.vm.synced_folder "/home/moe/.npm_modules", "/home/vagrant/.npm_modules"
+  # config.vm.synced_folder "/home/moe/.npm_modules", "/home/vagrant/.npm_modules"
   config.vm.synced_folder "/home/moe/WebstormProjects", "/home/vagrant/WebstormProjects"
 
 
