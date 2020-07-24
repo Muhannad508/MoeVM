@@ -5,6 +5,7 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/home/moe/IdeaProjects", "/home/vagrant/IdeaProjects"
   # config.vm.synced_folder "/home/moe/.npm_modules", "/home/vagrant/.npm_modules"
   config.vm.synced_folder "/home/moe/WebstormProjects", "/home/vagrant/WebstormProjects"
+  #   config.vm.provision "file", source: "~/path/to/host/folder", destination: "$HOME/remote/newfolder"
 
 
 	

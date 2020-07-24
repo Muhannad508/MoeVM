@@ -30,10 +30,10 @@ apt-get install -y fish
 snap install ubuntu-make --classic
 snap install cheat
 snap install micro --classic
-snap install node --classic  # nodeJs
+#   snap install node --classic  # nodeJs
 
 ################# umake packages from (ubuntu-make) #######################
-#umake nodejs
+ umake nodejs
 
 ################################################################
 
