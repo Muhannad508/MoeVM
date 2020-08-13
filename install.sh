@@ -38,6 +38,8 @@ apt-get install -y htop
 snap install ubuntu-make --classic
 snap install cheat
 snap install micro --classic
+
+#snap install authy --classic
 # snap install node --classic  # nodeJs
 
 ################# umake repository list (ubuntu-make) #######################
