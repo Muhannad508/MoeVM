@@ -3,8 +3,8 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.50.4"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.synced_folder "/home/moe/IdeaProjects", "/home/vagrant/IdeaProjects"
-   config.vm.synced_folder "/home/moe/Apps/MoeVM/Setup_System", "/home/vagrant/Setup_System"
-  config.vm.synced_folder "/home/moe/WebstormProjects", "/home/vagrant/WebstormProjects"
+  # config.vm.synced_folder "/home/moe/Apps/MoeVM/Setup_System", "/home/vagrant/Setup_System"
+  # config.vm.synced_folder "/home/moe/WebstormProjects", "/home/vagrant/WebstormProjects"
   #   config.vm.provision "file", source: "~/path/to/host/folder", destination: "$HOME/remote/newfolder"
 
 
@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
   end
 
 	config.vm.provision "shell",
-	inline: "/bin/sh /home/vagrant/Setup_System/install.sh"
+	inline: "/bin/sh /vagrant/Setup_System/install.sh"
 
 # 	config.vm.provision "shell" do |sh| 
 	
