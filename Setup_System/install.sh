@@ -35,24 +35,23 @@ apt-get install -y xclip
 #   snap install code --classic
 #   snap install skype --classic
 snap install ubuntu-make --classic
-snap install cheat
-snap install micro --classic
-snap install node --classic
+#snap install cheat
+#snap install micro --classic
+#snap install node --classic
 
 #snap install authy --classic
 
 
 ################# umake repository list (ubuntu-make) #######################
- # umake nodejs
+  umake nodejs
 
  
 
 ################# SDKMAN repository list #######################
   	### init ###
- # curl -s "https://get.sdkman.io" | bash
- export SDKMAN_DIR="/home/vagrant/.sdkman" && curl -s "https://get.sdkman.io" | bash
- 
- source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+  curl -s "https://get.sdkman.io" | bash
+
+ bash "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 
 #echo "sdkman_auto_answer=true" >> /home/vagrant/.sdkman/etc/config
 
