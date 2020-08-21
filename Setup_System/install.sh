@@ -40,7 +40,7 @@ snap install ubuntu-make --classic
 #snap install node --classic
 
 #snap install authy --classic
-
+# sudo snap install intellij-idea-ultimate --classic
 
 ################# umake repository list (ubuntu-make) #######################
   umake nodejs
