@@ -3,16 +3,17 @@
 
 #snap install ubuntu-make --classic
 
-#umake nodejs
+umake nodejs
+umake java
 
 
-curl -s "https://get.sdkman.io" | bash
+#curl -s "https://get.sdkman.io" | bash
 
-bash "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+#bash "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 
-cmd= "install java"
+#cmd= "install java"
 
-echo "${sdk} install java"
+#echo "${sdk} install java"
 
 # sdk install maven
  # sdk install gradle

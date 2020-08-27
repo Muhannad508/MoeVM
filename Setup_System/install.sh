@@ -44,7 +44,7 @@ snap install ubuntu-make --classic
 
 ################# umake repository list (ubuntu-make) #######################
   umake nodejs
-
+  umake java
  
 
 ################# SDKMAN repository list #######################
