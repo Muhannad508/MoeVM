@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 
-echo " ###################### Moe customized installation started. the process ID $$"
 
 apt-get update
 
@@ -34,7 +33,7 @@ apt-get install -y xclip
 ##################### Snap repository list ########################
 #   snap install code --classic
 #   snap install skype --classic
-snap install ubuntu-make --classic
+ snap install ubuntu-make --classic
 #snap install cheat
 #snap install micro --classic
 #snap install node --classic
@@ -43,16 +42,18 @@ snap install ubuntu-make --classic
 # sudo snap install intellij-idea-ultimate --classic
 
 ################# umake repository list (ubuntu-make) #######################
-  umake nodejs
-  umake java
+#  umake nodejs
+#  umake java
  
 
 ################# SDKMAN repository list #######################
   	### init ###
   curl -s "https://get.sdkman.io" | bash
 
- bash "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+ . "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 
+
+ 
 #echo "sdkman_auto_answer=true" >> /home/vagrant/.sdkman/etc/config
 
 	### installation list ### 
@@ -62,6 +63,8 @@ snap install ubuntu-make --classic
 
 apt-get update
 apt-get upgrade --yes
+
+ # . "/vagrant/Setup_System/setupSdkTools.sh"
 
 echo " the process ID $! finished. Return status is: $? "
 
