@@ -3,18 +3,24 @@
 
 
 
+
 if [ ! -d "/home/vagrant/.local/share/umake" ]; then sudo snap install ubuntu-make --classic ; fi
 
 if [ ! -d "/home/vagrant/.local/share/umake/java/adoptopenjdk" ]; then umake java; fi
 
 
-if [ ! -d "/home/vagrant/.local/share/umake/nodejs/nodejs-lang" ]; then umake nodejs; fi
+if [ ! -d "/home/vagrant/.local/share/umake/nodejs/nodejs-lang" ]; then 
+umake nodejs
+node_path = "/home/vagrant/.local/share/umake/nodejs/nodejs-lang/bin"
+echo "Nodejs has been installed"
+fi
 
 #umake nodejs
 #umake java
 
 npm install -g tldr
 npm install -g @vue/cli
+
 
 
 # . "/vagrant/Setup_System/setupWebPkgs.sh"
