@@ -33,7 +33,7 @@ apt-get install -y xclip
 ##################### Snap repository list ########################
 #   snap install code --classic
 #   snap install skype --classic
- snap install ubuntu-make --classic
+# snap install ubuntu-make --classic
 #snap install cheat
 #snap install micro --classic
 #snap install node --classic
@@ -48,9 +48,9 @@ apt-get install -y xclip
 
 ################# SDKMAN repository list #######################
   	### init ###
-  curl -s "https://get.sdkman.io" | bash
+#  curl -s "https://get.sdkman.io" | bash
 
- . "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+# . "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 
 
  
@@ -64,13 +64,15 @@ apt-get install -y xclip
 apt-get update
 apt-get upgrade --yes
 
- # . "/vagrant/Setup_System/setupSdkTools.sh"
 
 echo " the process ID $! finished. Return status is: $? "
+
+#bash -l "/vagrant/Setup_System/setupSdkTools.sh"
+
 
 
 
 # download chrome
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /home/moe/Downloads
 
-echo "## ==> Packages Installation has been Compeleted. You can now install java and other sdks by running this command:  source /home/vagrant/Setup_System/sdk_installs.sh " <== ##"
+#echo "## ==> Packages Installation has been Compeleted. You can now install java and other sdks by running this command:  source /home/vagrant/Setup_System/sdk_installs.sh " <== ##"
