@@ -6,7 +6,10 @@
 
 if [ ! -d "/home/vagrant/.local/share/umake" ]; then sudo snap install ubuntu-make --classic ; fi
 
-if [ ! -d "/home/vagrant/.local/share/umake/java/adoptopenjdk" ]; then umake java; fi
+if [ ! -d "/home/vagrant/.local/share/umake/java/adoptopenjdk" ]; then 
+umake java
+umake maven 
+fi
 
 
 if [ ! -d "/home/vagrant/.local/share/umake/nodejs/nodejs-lang" ]; then 
@@ -20,10 +23,12 @@ fi
 
 npm install -g tldr
 npm install -g @vue/cli
+npm install -g json-server
+npm install -g http-server
 
 
 
-# . "/vagrant/Setup_System/setupWebPkgs.sh"
+# . "/vagrant/scripts/setupWebPkgs.sh"
 
 echo "Setup as Compeleted"
 

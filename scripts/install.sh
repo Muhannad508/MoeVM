@@ -67,7 +67,7 @@ apt-get upgrade --yes
 
 echo " the process ID $! finished. Return status is: $? "
 
-#bash -l "/vagrant/Setup_System/setupSdkTools.sh"
+#bash -l "/vagrant/scripts/setupSdkTools.sh"
 
 
 
