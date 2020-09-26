@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
   
   
 
-  config.vm.provision "docker" do |d|    
+#  config.vm.provision "docker" do |d|    
        # d.post_install_provision "shell", inline:"echo export http_proxy='http://127.0.0.1:3128/' >> /etc/default/docker"
 
 #	d.run "mongo" , 
@@ -26,16 +26,17 @@ Vagrant.configure(2) do |config|
 #	args: "-d -p 27017-27019:27017-27019 --name mongodb"
 	
 	# d.run "mongo-express" , args: "-it --rm -p 8081:8081 --link mongodb"
+#  end
+
+#	config.vm.provision "shell",
+#	inline: "/bin/sh /vagrant/scripts/install.sh"
+
+#	end
+
+# Run Ansible from the Vagrant VM
+  config.vm.provision 'ansible' do |ansible|
+    ansible.playbook = 'provisioning/playbook.yml'
+#    ansible.galaxy_role_file = 'provisioning/requirements.yml'
   end
 
-	config.vm.provision "shell",
-	inline: "/bin/sh /vagrant/scripts/install.sh"
-
-# 	config.vm.provision "shell" do |sh| 
-	
-#	sh.path ="install.sh" 
-#	config.vm.provision "shell",
-#	inline: "/bin/sh ~/Setup_System/install.sh"
-#	sh.path = "bootstrap.sh"
-	#end
 end

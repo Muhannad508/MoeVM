@@ -1,0 +1,38 @@
+---
+
+# Mongodb version
+mongodb_version: 3.6
+# APT key id
+mongodb_apt_key_id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+# APT key server
+mongodb_apt_key_server: keyserver.ubuntu.com
+# APT repository
+mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution|lower }} {{ ansible_distribution_release }}/mongodb-org/{{ mongodb_version }} {{ 'main' if ansible_distribution == 'debian' else 'multiverse' }}"
+# User
+mongodb_user: mongodb
+# Package
+mongodb_package: mongodb-org
+# For documentation of all options, see:
+# http://docs.mongodb.org/manual/reference/configuration-options/
+mongodb_conf_defaults:
+  systemLog:
+    destination: file
+    logAppend: true
+    path: /var/log/mongodb/mongod.log
+  storage:
+    dbPath: /var/lib/mongo
+    journal:
+      enabled: true
+  processManagement:
+    fork: true
+    pidFilePath: /var/run/mongodb/mongod.pid
+    timeZoneInfo: /usr/share/zoneinfo
+  net:
+    port: 27017
+    bindIp: 127.0.0.1
+mongodb_conf: "{{ mongodb_conf_defaults | combine({}, recursive=True) }}"
+# start on boot
+mongodb_service_enabled: yes
+# current state: started, stopped
+mongodb_service_state: started
+

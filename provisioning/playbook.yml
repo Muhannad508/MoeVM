@@ -1,0 +1,24 @@
+---
+- hosts: all
+
+  pre_tasks:
+    - name: apt-get update
+      become: yes
+      apt:
+        update_cache: yes
+
+  become: yes
+
+
+  
+  roles:
+    # Preserve the apt cache
+    - role: gantsign.apt
+      apt_preserve_cache: yes
+
+    - role: geerlingguy.java
+      become: yes
+    
+    - { role: geerlingguy.git }
+
+    - role: geerlingguy.nodejs
