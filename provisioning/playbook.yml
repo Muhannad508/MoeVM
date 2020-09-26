@@ -7,6 +7,10 @@
       apt:
         update_cache: yes
 
+    - name: update all packages to the latest version
+      apt:
+        upgrade: dist
+        
   become: yes
 
 
@@ -22,3 +26,7 @@
     - { role: geerlingguy.git }
 
     - role: geerlingguy.nodejs
+
+    - role: geerlingguy.docker
+
+    #- role: Comcast.sdkman
