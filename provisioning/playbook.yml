@@ -13,7 +13,8 @@
         
   become: yes
 
-
+  vars:
+    swap_file_size_mb: '6024'
   
   roles:
     # Preserve the apt cache
@@ -28,5 +29,8 @@
     - role: geerlingguy.nodejs
 
     - role: geerlingguy.docker
+
+    - role: geerlingguy.swap
+
 
     #- role: Comcast.sdkman
