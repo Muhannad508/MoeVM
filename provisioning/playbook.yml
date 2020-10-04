@@ -27,10 +27,24 @@
     - { role: geerlingguy.git }
 
     - role: geerlingguy.nodejs
+      nodejs_npm_global_packages:
+        - name: grunt-cli
+        - name: grunt-init
+        - name: gulp-cli
+        - name: npm-check-updates
+        - name: typescript
+        - name: ts-node
+        - name: typings
 
     - role: geerlingguy.docker
+      docker_users:
+        - vagrant
 
     - role: geerlingguy.swap
+
+    # Install Go language SDK
+    - role: gantsign.golang
+      golang_gopath: '$HOME/workspace-go'
 
 
     #- role: Comcast.sdkman
