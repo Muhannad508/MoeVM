@@ -35,6 +35,7 @@
         - name: typescript
         - name: ts-node
         - name: typings
+        - name: json-server
 
     - role: geerlingguy.docker
       docker_users:
