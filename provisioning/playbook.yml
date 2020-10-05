@@ -1,6 +1,7 @@
 ---
 - hosts: all
-
+  become: yes
+  
   pre_tasks:
     - name: apt-get update
       become: yes
@@ -11,7 +12,7 @@
       apt:
         upgrade: dist
         
-  become: yes
+ 
 
   vars:
     swap_file_size_mb: '6024'

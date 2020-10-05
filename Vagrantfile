@@ -3,9 +3,8 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.50.50.50"
   config.vm.network "forwarded_port", guest: 80, host: 8080
    config.vm.synced_folder "/home/moe/IdeaProjects", "/home/vagrant/IdeaProjects"
-  # config.vm.synced_folder "/home/moe/Apps/MoeVM/Setup_System", "/home/vagrant/Setup_System"
-  # config.vm.synced_folder "/home/moe/WebstormProjects", "/home/vagrant/WebstormProjects"
-  #   config.vm.provision "file", source: "~/path/to/host/folder", destination: "$HOME/remote/newfolder"
+ 
+ 
 
 
 	
@@ -14,6 +13,9 @@ Vagrant.configure(2) do |config|
     vb.name = "dev-os-vm"
     vb.memory = "6024"
     vb.cpus = 3
+    # Enable host desktop integration
+    vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+    vb.customize ['modifyvm', :id, '--draganddrop', 'bidirectional']
   end
   
   
