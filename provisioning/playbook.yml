@@ -36,7 +36,8 @@
         - name: ts-node
         - name: typings
         - name: json-server
-
+        - name: "@vue/cli"
+        
     - role: geerlingguy.docker
       docker_users:
         - vagrant
