@@ -70,9 +70,11 @@ setup_node() {
 PRE_INSTALL_PKGS=""
 
 # Using Debian, as root
-exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
+#exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
+exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | bash -'
+
 PRE_INSTALL_PKGS="nodejs"
-exec_cmd "sudo -E apt-get install -y ${PRE_INSTALL_PKGS}"
+exec_cmd "apt-get install -y ${PRE_INSTALL_PKGS}"
  
  print_status "Installing some npm packages..."
 npm install -g tldr
@@ -92,16 +94,19 @@ PRE_INSTALL_PKGS=""
 
 # Download and install VC Editor
 PRE_INSTALL_PKGS="$PWD/code.deb"
-exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb | sudo -E'
-#exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 | sudo -E'
+exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb'
+#exec_cmd 'curl -L -O https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 | bash -'
 
 print_status "location deb file ${PRE_INSTALL_PKGS}"
 exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
 
 
 # download chrome
-PRE_INSTALL_PKGS="$PWD/chrome.deb"
-exec_cmd 'curl -L -o chrome https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+PRE_INSTALL_PKGS="google-chrome-stable_current_amd64.deb"
+exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+
+#exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb | apt-get install -'
+
 print_status "location deb file ${PRE_INSTALL_PKGS}"
 #exec_cmd "sudo -E apt-get install ${PRE_INSTALL_PKGS}"
 
