@@ -70,9 +70,9 @@ setup_node() {
 PRE_INSTALL_PKGS=""
 
 # Using Debian, as root
-exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | bash -'
+exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
 PRE_INSTALL_PKGS="nodejs"
-exec_cmd "apt-get install -y ${PRE_INSTALL_PKGS}"
+exec_cmd "sudo -E apt-get install -y ${PRE_INSTALL_PKGS}"
  
  print_status "Installing some npm packages..."
 npm install -g tldr
@@ -87,13 +87,25 @@ exec_cmd 'snap install authy --classic'
 }
 
 
+PRE_INSTALL_PKGS=""
 #install 'htop'
 
-CODE="$PWD/code.deb"
+# Download and install VC Editor
+PRE_INSTALL_PKGS="$PWD/code.deb"
+exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb | sudo -E'
+#exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 | sudo -E'
 
-exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb'
-print_status "location deb file ${CODE}"
-exec_cmd "apt-get install ${CODE}"
+print_status "location deb file ${PRE_INSTALL_PKGS}"
+exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
+
+
+# download chrome
+PRE_INSTALL_PKGS="$PWD/chrome.deb"
+exec_cmd 'curl -L -o chrome https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+print_status "location deb file ${PRE_INSTALL_PKGS}"
+#exec_cmd "sudo -E apt-get install ${PRE_INSTALL_PKGS}"
+
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /home/moe/Downloads
 
 # Populating Cache
 # print_status "Populating apt-get cache..."
