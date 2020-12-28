@@ -41,9 +41,16 @@ exec_cmd() {
 
 PRE_INSTALL_PKGS=""
 
+# Using Debian, as root
+exec_cmd 'curl -sL https://deb.nodesource.com/setup_lts.x | bash -'
+PRE_INSTALL_PKGS="nodejs"
+exec_cmd "apt-get install -y ${PRE_INSTALL_PKGS}"
+ print_status "Nodejs has been Installed..."
+
+
 # Populating Cache
-print_status "Populating apt-get cache..."
-exec_cmd 'apt-get update'
+# print_status "Populating apt-get cache..."
+# exec_cmd 'apt-get update'
 
  print_status "Installing packages required for setup..."
     # This next command needs to be redirected to /dev/null or the script will bork
