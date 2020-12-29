@@ -58,7 +58,7 @@ exec_cmd() {
     exec_cmd_nobail "$1" || bail
 }
 
-install() {
+install_pkg() {
     PKG="$1"
      print_status " ${bold} Installing ${PKG} ..."
     exec_cmd "apt-get install -y ${PKG}"
@@ -92,6 +92,14 @@ exec_cmd 'snap install authy --classic'
 PRE_INSTALL_PKGS=""
 #install 'htop'
 
+### BEGIN: 
+
+
+# install other pkgs from snap and apt:
+setup_node
+setup_snap
+
+
 # Download and install VC Editor
 PRE_INSTALL_PKGS="$PWD/code.deb"
 exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb'
@@ -102,15 +110,15 @@ exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
 
 
 # download chrome
-PRE_INSTALL_PKGS="google-chrome-stable_current_amd64.deb"
+PRE_INSTALL_PKGS="$PWD/google-chrome-stable_current_amd64.deb"
 exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 
 #exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb | apt-get install -'
 
 print_status "location deb file ${PRE_INSTALL_PKGS}"
-#exec_cmd "sudo -E apt-get install ${PRE_INSTALL_PKGS}"
+exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
 
-#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /home/moe/Downloads
+
 
 # Populating Cache
 # print_status "Populating apt-get cache..."
@@ -118,4 +126,3 @@ print_status "location deb file ${PRE_INSTALL_PKGS}"
 
 
   #  exec_cmd "apt-get install -y ${PRE_INSTALL_PKGS} > /dev/null 2>&1"
-
