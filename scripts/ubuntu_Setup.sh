@@ -83,46 +83,50 @@ npm install -g json-server
 npm install -g http-server
 }
 
-setup_snap() {
+setup() {
+
+
+PRE_INSTALL_PKGS=""
+
+# Check that HTTPS transport is available to APT
+# (Check snaked from: https://get.docker.io/ubuntu/)
+
+if [ ! -e /usr/lib/apt/methods/https ]; then
+    PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} apt-transport-https"
+fi
+
+
+if [ ! -x /usr/bin/curl ] && [ ! -x /usr/bin/wget ]; then
+    PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} curl"
+fi
+
+# Used by apt-key to add new keys
+
+if [ ! -x /usr/bin/gpg ]; then
+    PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} gnupg"
+fi
+
+PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} $PWD/code.deb"
+exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb'
+
+# download chrome
+PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS}  $PWD/google-chrome-stable_current_amd64.deb"
+exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+
+
+# Populating Cache
+print_status "Populating apt-get cache..."
+exec_cmd 'apt-get update'
+
+if [ "X${PRE_INSTALL_PKGS}" != "X" ]; then
+    print_status "Installing packages required for setup:${PRE_INSTALL_PKGS}..."
+    # This next command needs to be redirected to /dev/null or the script will bork
+    # in some environments
+    exec_cmd "apt-get install -y${PRE_INSTALL_PKGS} > /dev/null 2>&1"
+fi
+
 exec_cmd 'snap install cheat'
 exec_cmd 'snap install authy --classic'
 }
 
-
-PRE_INSTALL_PKGS=""
-#install 'htop'
-
-### BEGIN: 
-
-
-# install other pkgs from snap and apt:
-setup_node
-setup_snap
-
-
-# Download and install VC Editor
-PRE_INSTALL_PKGS="$PWD/code.deb"
-exec_cmd 'curl -L https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 -o code.deb'
-#exec_cmd 'curl -L -O https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x64 | bash -'
-
-print_status "location deb file ${PRE_INSTALL_PKGS}"
-exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
-
-
-# download chrome
-PRE_INSTALL_PKGS="$PWD/google-chrome-stable_current_amd64.deb"
-exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-
-#exec_cmd 'curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb | apt-get install -'
-
-print_status "location deb file ${PRE_INSTALL_PKGS}"
-exec_cmd "apt-get install ${PRE_INSTALL_PKGS}"
-
-
-
-# Populating Cache
-# print_status "Populating apt-get cache..."
-# exec_cmd 'apt-get update'
-
-
-  #  exec_cmd "apt-get install -y ${PRE_INSTALL_PKGS} > /dev/null 2>&1"
+setup
